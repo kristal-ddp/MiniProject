@@ -1,46 +1,67 @@
-package project1.java;//soo
+package project1.java;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import com.score4.UserLogin;
+import com.score4.UserSign;
+import com.score4.UserVO;
+
 public class PCMain {
+	
+	private static List<UserVO> list = new ArrayList<>();
 
-	public static void main(String[] args) throws Exception {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		UserData ud = new UserData();
-		
-		int ch;
-		
-		while(true) {
-			
-			do {
-				System.out.println("================================================");
-				System.out.println("1.회원등록 2.로그인 3.회원출력 4.좌석선택\n"
-						+ "5.시간선택 6.메뉴주문 7.포인트 및 결제 8.종료");
-				System.out.println("================================================");
-				System.out.print("메뉴를 선택하세요 : ");
-				ch = sc.nextInt();
-			}while(ch<1);
-			
-			switch(ch) {
-				case 1: ud.sign();break;//회원등록
-				case 2:	ud.login();break;//로그인
-				case 3:	ud.print();break;//회원출력
-				case 4: ud.selectSeat();break;//좌석선택
-				case 5: ud.time();break;//시간선택
-				case 6: ud.order();break;//메뉴주문
-				case 7: ud.pay();break;//포인트 및 결제
-				default:
-					System.out.println("시스템을 종료합니다.");
-					ud.save();
-					System.exit(0);
-			}
-			
-			System.out.println();
-			
-		}
-
+	public static List<UserVO> getList() {
+		return list;
+	}
+	public static void setList(List<UserVO> list) {
+		PCMain.list = list;
 	}
 
+	public static void main(String[] args) throws Exception {
+
+		UserSign us = new UserSign(list);
+		UserLogin ul = new UserLogin(list);
+
+		Scanner sc = new Scanner(System.in);
+
+		while(true) {
+			System.out.print(
+					"          　へ　　　 　　   ／ ＼  \r\n" +
+							"　         ｜`＼　　　 　  ／／ ｜ \r\n" +
+							"   　      ｜|＼〉--------〈／ |｜ \r\n" +
+							"         　｜|／　　　　 　 ＼ |｜ \r\n" +
+							"   　       /　　　　　　　   ＼  \r\n" + 
+							"         　／　-　　　　　 -    ＼\r\n" + 
+							"          〈　　●　　ο　　●　  > \r\n" + 
+							"         　 ⊂⊃三　 (_v_) 三⊂⊃／\r\n" + 
+							"         -- (^_^_^)-------(^_^_^)--\r\n"  +
+							" ============================================ \r\n" + 
+							"|                                            |\r\n" + 
+							"|           _ _  ___  _    _    ___          |\r\n" + 
+							"|            | || __>| |  | |  | . |         |\r\n" + 
+							"|            _ || _> | |_ | |_ | | |         |\r\n" + 
+							"|           _|_||___>|___||___|`___'         |\r\n" +
+							"|                                            |\r\n" +
+							"|            WELCOME ITWILL PC ROOM          |\r\n" + 
+							"|                                            |\r\n" + 
+							" ============================================ \r\n" +
+							"|                    ｜                      |\r\n"+ 
+							"|    ① 회원가입     ｜  ② 사용자 로그인    |\r\n"+ 
+							"|                    ｜                      |\r\n"+ 
+							" ============================================\r\n" +
+					" 메뉴를 선택해 주세요 ><≡> ");
+
+//			int ch = sc.nextInt();//방법①
+//			switch (ch) {
+			switch (sc.nextInt()) {//방법②
+			case 1: us.sign(); break;
+			case 2: ul.login(); break;
+
+			default: break;
+			
+			}
+		}
+	}
 }
