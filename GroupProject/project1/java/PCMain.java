@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.score4.UserLogin;
-import com.score4.UserSign;
-import com.score4.UserVO;
-
 public class PCMain {
 	
 	private static List<UserVO> list = new ArrayList<>();

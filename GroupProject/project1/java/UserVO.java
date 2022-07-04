@@ -1,4 +1,4 @@
-package project1.java;//soo
+package project1.java;	
 
 import java.io.Serializable;
 
@@ -11,12 +11,30 @@ public class UserVO implements Serializable{
 	private int seatNum;
 	private int rdNum;
 	private int hour;
+	private int hourPrice;
 	private int menuNum;//메뉴 주문수량
 	private int menuPrice;//메뉴 금액
 	private int sumPrice;//메뉴 금액 합계
 	private int bonusPoint;//포인트
 	private int bonusNum;//포인트 적립or사용 선택
+	private int selectHourPrice;
 	
+	public int getSelectHourPrice() {
+		return selectHourPrice;
+	}
+
+	public void setSelectHourPrice(int selectHourPrice) {
+		this.selectHourPrice = selectHourPrice;
+	}
+
+	public int getHourPrice() {
+		return hourPrice;
+	}
+
+	public void setHourPrice(int hourPrice) {
+		this.hourPrice = hourPrice;
+	}
+
 	public String getUserID() {
 		return userID;
 	}
@@ -111,15 +129,6 @@ public class UserVO implements Serializable{
 
 	public void setBonusNum(int bonusNum) {
 		this.bonusNum = bonusNum;
-	}
-
-
-	public String toString() {
-		
-		System.out.println("회원번호 ID");
-		String str = String.format("%d %s",userNum,userID);
-		return str;
-		
 	}
 
 }
